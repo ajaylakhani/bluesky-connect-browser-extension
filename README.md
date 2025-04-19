@@ -96,19 +96,44 @@ We offer multiple installation methods:
    - Click "Load unpacked"  and select the repository directory
 
 ## Projext Structure
-bluesky-connect/
-├── icons/                # Extension icons
+ ```
+bluesky-connect-browser-extension/
+├── assets/
+│   └── icons/
+│       ├── icon128.png
+│       ├── icon16.png
+│       ├── icon32.png
+│       ├── icon48.png
+│       ├── bskyconnect.png
+│       └── logo.png
 ├── src/
-│   ├── background.js     # Background service worker
-│   ├── content.js        # Content script for page integration
-│   ├── logger.js         # Logging utility
-│   └── session-bridge.js # Bridge for exposing session to pages
-├── license.html          # License information
-├── main.html             # Extension popup
-├── options.html          # Options page
-├── test-page.html        # Test page for verifying authentication
-├── welcome.html          # Welcome page
-└── manifest.json         # Extension manifest
+│   ├── background/
+│   │   └── background.js
+│   ├── content/
+│   │   └── content.js
+│   ├── pages/
+│   │   ├── license/
+│   │   │   ├── license.css
+│   │   │   └── license.html
+│   │   ├── main/
+│   │   │   ├── main.html
+│   │   │   └── main.js
+│   │   ├── options/
+│   │   │   ├── options.css
+│   │   │   ├── options.html
+│   │   │   └── options.js
+│   │   └── welcome/
+│   │       ├── welcome.css
+│   │       ├── welcome.html
+│   │       └── welcome.js
+│   └── utils/
+│       ├── logger.js
+│       └── session-bridge.js
+├── .gitignore
+├── manifest.json
+├── test.css
+└── test.html
+ ```
 
 ## Customization
 Developers can easily create their own branded version of this extension by modifying:
