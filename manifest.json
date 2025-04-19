@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Bluesky Connect Browser Extension",
+  "version": "1.0.0",
+  "description": "Securely connect to your Bluesky account on the AT Protocol",
+  "author": "Ajay Lakhani (@ajaylakhani.bsky.social)",
+  "homepage_url": "https://github.com/ajaylakhani",
+  "action": {
+    "default_popup": "src/pages/main/main.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "options_page": "src/pages/options/options.html",
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "src/utils/logger.js",
+        "src/content/content.js"
+      ],
+      "matches": ["<all_urls>"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/pages/license/license.html", 
+        "src/pages/welcome/welcome.html", 
+        "src/utils/session-bridge.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

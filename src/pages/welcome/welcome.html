@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="title"></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="welcome.css">
+ <script src="welcome.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo-container">
+      <img src="/assets/logo.png" class="logo">
+      <h1><span id="app-name"></span></h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="welcome-card">
+      <h2 class="welcome-title">Thank you for installing <span id="app-name"></span>!</h2>
+      <p class="welcome-desc">This extension allows you to securely connect to your Bluesky account and interact with websites that support the AT Protocol.</p>
+    </div>
+
+    <div class="setup-container">
+      <div class="setup-header">
+        <h3 class="setup-title">Start setup</h3>
+      </div>
+
+      <div class="setup-steps">
+        <div class="setup-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4 class="step-title">Connect your Bluesky account</h4>
+            <p class="step-desc">Sign in with your Bluesky handle or email and password to connect your account.</p>
+            <div class="btn-container">
+              <a href="#" id="connect-account" class="btn btn-primary">
+                <i class="fas fa-sign-in-alt"></i> Connect existing account
+              </a>
+              <a href="https://bsky.app/signup" target="_blank" class="btn btn-secondary">
+                <i class="fas fa-user-plus"></i> Create new account
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="setup-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4 class="step-title">Set up an app password</h4>
+            <p class="step-desc">For enhanced security, we recommend using an app password instead of your main password.</p>
+            <div class="btn-container">
+              <a href="https://bsky.app/settings/app-passwords" target="_blank" class="btn btn-primary">
+                <i class="fas fa-key"></i> Create an app password
+              </a>
+              <a href="#" id="learn-app-passwords" class="btn btn-secondary">
+                <i class="fas fa-info-circle"></i> Learn more about app passwords
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="setup-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4 class="step-title">Pin the extension to your browser's toolbar</h4>
+            <p class="step-desc">Keep <span id="app-name"></span> easily accessible by pinning it to your browser toolbar.</p>
+            <div class="btn-container">
+              <a href="#" id="how-to-pin" class="btn btn-secondary">
+                <i class="fas fa-thumbtack"></i> How to pin extensions
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="/src/pages/license/license.html" class="link" target="_blank">
+          <i class="fas fa-info-circle"></i> License
+        </a>
+        <a href="https://bsky.app" class="link" target="_blank">
+          <i class="fas fa-external-link-alt"></i> Bluesky
+        </a>
+      </div>
+    </footer>
+
+
+  
+  <!-- App Password Information Modal -->
+  <div id="app-password-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Why Use App Passwords?</h3>
+        <button class="modal-close" id="app-password-modal-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="article-header">
+          <h2 class="article-title">Why You Should Be Using Bluesky's 'App Passwords'</h2>
+          <p class="article-subtitle">Securely enhance your Bluesky experience.</p>
+        </div>
+        
+        <p><strong>Bluesky</strong> has emerged as a developer-friendly social platform that offers robust API functionality. The platform has become particularly popular among former X users seeking an alternative social media experience. For everyday users, this means access to a variety of third-party applications that enhance how you <strong>interact with your Bluesky feed</strong>, <strong>publish content</strong>, <strong>expand your network</strong>, and more. Bluesky's dedicated community showcase features <strong>numerous client applications developed using their API</strong>. While these applications can work with your primary Bluesky credentials, creating dedicated app passwords provides an additional layer of security.</p>
+
+        <h3 class="article-section-title">Understanding Bluesky App Passwords</h3>
+        <p>To facilitate seamless integration with community-developed projects, Bluesky has implemented a system of app passwords—specialized access keys that grant third-party applications permission to interact with your account while maintaining security. These individual keys can be revoked anytime, giving you greater control without compromising your main account password.</p>
+
+        <p>Each app password functions as a unique authorization code generated specifically for connecting your Bluesky account to external applications. After creating an app password, you'll need to enter it into the third-party client to establish the connection (important note: Bluesky doesn't store these passwords for later viewing, so consider saving it somewhere secure if needed). You have the flexibility to create multiple app passwords for different services, and you can easily delete any password to immediately terminate that application's access to your account.</p>
+        
+        <h3 class="article-section-title">How to create app passwords in Bluesky</h3>
+        <p>Follow these steps to create a Bluesky app password:</p>
+        <ol class="steps-list">
+          <li>Open Bluesky and go to the settings page. On desktop, the <strong>Settings</strong> button is in the left pane, and in the BlueSky App, it's under the hamburger menu (three horizontal lines) in the top-left corner.</li>
+          <li>Navigate to <strong>Privacy & Security > App passwords</strong>. Alternatively, you can directly go to the <a href="https://bsky.app/settings/app-passwords" target="_blank">app passwords page here</a>.</li>
+          <li>Select <strong>Add App Password</strong>.</li>
+          <li>Choose a name for your app password. Ideally, you want to use a name that you can recognize, such as, "Deck Blue," which tells you exactly which app is using that app password.</li>
+          <li>On the same page, you'll see a checkbox labelled <strong>Allow access to your direct messages</strong>. Think carefully before enabling this option. If a third-party app goes rogue, you want it to have access to as little of your information as possible. If you're using a third-party app as your primary Bluesky client, you might want to give it access to your DMs, but if you're just trying out a new client or using it only for a different feed view, you can avoid this.</li>
+          <li>Once you're ready, click <strong>Next</strong>.</li>
+          <li>You'll see a new app password on the screen. Copy it and paste it onto the login page for your desired third-party Bluesky client.</li>
+        </ol>
+        <p>That's it! You can repeat this process to generate more app passwords. To revoke access for the app using the password, just click the red trash icon next its app password and select <strong>Delete</strong>.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="https://bsky.app/settings/app-passwords" target="_blank" class="btn btn-primary">
+          <i class="fas fa-key"></i> Create an app password
+        </a>
+        <button class="btn btn-secondary modal-close-btn" data-modal="app-password-modal">
+          <i class="fas fa-times"></i> Close
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Pin Extension Information Modal -->
+  <div id="pin-extension-modal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">How to Pin Extensions</h3>
+        <button class="modal-close" id="pin-extension-modal-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="browser-tabs">
+          <div class="browser-tab active" data-tab="chrome">Chrome</div>
+          <div class="browser-tab" data-tab="edge">Edge</div>
+          <div class="browser-tab" data-tab="firefox">Firefox</div>
+          <div class="browser-tab" data-tab="safari">Safari</div>
+        </div>
+        
+        <!-- Chrome Tab Content -->
+        <div id="chrome-tab" class="tab-content active">
+          <div class="instruction-block">
+            <div class="instruction-number">1</div>
+            <div class="instruction-content">
+              <p>Click the puzzle piece icon <i class="fas fa-puzzle-piece"></i> in the top-right corner of your browser toolbar.</p>
+            </div>
+          </div>
+          
+          <div class="instruction-block">
+            <div class="instruction-number">2</div>
+            <div class="instruction-content">
+              <p>Find "<span id="app-name"></span>" in the dropdown list of extensions.</p>
+            </div>
+          </div>
+          
+          <div class="instruction-block">
+            <div class="instruction-number">3</div>
+            <div class="instruction-content">
+              <p>Click the pin icon <i class="fas fa-thumbtack"></i> next to the extension. The icon will turn blue when pinned.</p>
+              <p>That's it! Now the Bluesky Connect icon will appear in your toolbar for easy access.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Edge Tab Content -->
+        <div id="edge-tab" class="tab-content">
+          <div class="instruction-block">
+            <div class="instruction-number">1</div>
+            <div class="instruction-content">
+              <p>Click the extensions icon (puzzle piece) <i class="fas fa-puzzle-piece"></i> in the top-right corner of your browser.</p>
+            </div>
+          </div>
+          
+          <div class="instruction-block">
+            <div class="instruction-number">2</div>
+            <div class="instruction-content">
+              <p>Find "Bluesky Connect" in the dropdown list of extensions.</p>
+            </div>
+          </div>
+          
+          <div class="instruction-block">
+            <div class="instruction-number">3</div>
+            <div class="instruction-content">
+              <p>Click the "Show in toolbar" pin icon <i class="fas fa-thumbtack"></i> next to the extension name.</p>
+              <p>Now the Bluesky Connect icon will be visible in your toolbar for easy access.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Firefox Tab Content -->
+        <div id="firefox-tab" class="tab-content">
+          <div class="instruction-block">
+            <div class="instruction-number">1</div>
+            <div class="instruction-content">
+              <p>Click the menu button <i class="fas fa-bars"></i> in the top-right corner of Firefox.</p>
+            </div>
+          </div>
+          
+          <div class="instruction-block">
+            <div class="instruction-number">2</div>
+            <div class="instruction-content">
+              <p>Select "Add-ons and themes" from the menu.</p>
+            </div>
+          </div>
+          
+          <div class="instruction-block">
+            <div class="instruction-number">3</div>
+            <div class="instruction-content">
+              <p>Click the gear icon <i class="fas fa-cog"></i> next to "Manage Your Extensions".</p>
+            </div>
+          </div>
+          
+          <div class="instruction-block">
+            <div class="instruction-number">4</div>
+            <div class="instruction-content">
+              <p>Select "Pin to Toolbar" for the Bluesky Connect extension.</p>
+              <p>The Bluesky Connect icon will now be visible in your Firefox toolbar.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Safari Tab Content -->
+        <div id="safari-tab" class="tab-content">
+          <div class="instruction-block">
+            <div class="instruction-number">1</div>
+            <div class="instruction-content">
+              <p>Click on "Safari" in the menu bar and select "Settings" (or "Preferences" in older versions).</p>
+            </div>
+          </div>
+          
+          <div class="instruction-block">
+            <div class="instruction-number">2</div>
+            <div class="instruction-content">
+              <p>Go to the "Extensions" tab.</p>
+            </div>
+          </div>
+          
+          <div class="instruction-block">
+            <div class="instruction-number">3</div>
+            <div class="instruction-content">
+              <p>Make sure the checkbox next to "Bluesky Connect" is checked to enable it.</p>
+            </div>
+          </div>
+          
+          <div class="instruction-block">
+            <div class="instruction-number">4</div>
+            <div class="instruction-content">
+              <p>Click "View" in the menu bar, then "Customize Toolbar".</p>
+            </div>
+          </div>
+          
+          <div class="instruction-block">
+            <div class="instruction-number">5</div>
+            <div class="instruction-content">
+              <p>Drag the Bluesky Connect extension icon to your toolbar.</p>
+              <p>The extension icon will now be visible in your Safari toolbar for easy access.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary modal-close-btn" data-modal="pin-extension-modal">
+          <i class="fas fa-check"></i> Got it
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

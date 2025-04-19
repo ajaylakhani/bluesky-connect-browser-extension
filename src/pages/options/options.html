@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="options.css">
+  
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <img src="/assets/logo.png" class="logo">
+      <h1><span id="app-name"></span> Options</h1>
+    </header>
+
+    <div class="content">
+      <div id="status-message" class="status-message"></div>
+      
+      <div class="info-message">
+        <i class="fas fa-info-circle"></i>
+        <div>Changes are saved automatically.</div>
+      </div>
+      
+      <div class="option-section">
+        <h2 class="section-title">Display Settings</h2>
+        
+        <div class="option-item">
+          <div class="option-info">
+            <div class="option-title">
+              Developer Mode <span class="badge">Advanced</span>
+            </div>
+            <div class="option-description">
+              Show technical information in the extension popup, such as DID and PDS endpoint.
+            </div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="developer-mode">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="option-section">
+        <h2 class="section-title">About</h2>
+        <p>
+          <span id="app-name"></span> enables secure authentication with the Bluesky social network using the AT Protocol.
+          This extension is an independent project and is not officially affiliated with Bluesky.
+        </p>
+        <p>
+          Version: 1.0.0
+        </p>
+      </div>
+    </div>
+    
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="license.html" class="link" target="_blank">
+          <i class="fas fa-info-circle"></i> License
+        </a>
+        <a href="https://bsky.app" class="link" target="_blank">
+          <i class="fas fa-external-link-alt"></i> Bluesky
+        </a>
+      </div>
+    </footer>
+
+  </div>
+  
+  <script src="options.js"></script>
+</body>
+</html>
